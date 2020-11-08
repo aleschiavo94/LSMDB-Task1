@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movietimejpa.FXMLAdminController">
+  <tabs>
+    <Tab text="Films">
+         <content>
+            <Pane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #1C0001;">
+               <children>
+                  <ImageView fitHeight="157.0" fitWidth="234.0" layoutX="412.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../admin.jpg" />
+                     </image>
+                  </ImageView>
+                  <TableView fx:id="film_table" layoutX="148.0" layoutY="119.0" onMouseClicked="#showDetails" prefHeight="220.0" prefWidth="305.0">
+                    <columns>
+                      <TableColumn fx:id="title_column" prefWidth="99.0" text="Title" />
+                      <TableColumn fx:id="genre_column" prefWidth="92.0" text="Genre" />
+                        <TableColumn fx:id="price_column" prefWidth="112.0" text="Weekly price" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="search_field" layoutX="197.0" layoutY="67.0" onKeyReleased="#setFilmSearched" prefHeight="39.0" prefWidth="208.0" promptText="Search for a title...">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="201.0" layoutY="22.0" prefHeight="35.0" prefWidth="199.0" text="Movies showcase" textFill="#db6063">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="add_button" layoutX="48.0" layoutY="302.0" mnemonicParsing="false" onMouseClicked="#openFilmForm" style="-fx-background-color: white;" text="Add">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </content></Tab>
+    <Tab onSelectionChanged="#initRentals" text="Rentals">
+         <content>
+            <Pane prefHeight="533.0" prefWidth="600.0" style="-fx-background-color: #1C0001;">
+               <children>
+                  <TableView fx:id="rental_table" layoutX="42.0" layoutY="86.0" prefHeight="200.0" prefWidth="313.0">
+                    <columns>
+                      <TableColumn fx:id="rental_startDate_column" prefWidth="112.0" text="Start Date" />
+                        <TableColumn fx:id="rental_endDate_column" prefWidth="111.0" text="End Date" />
+                        <TableColumn fx:id="rental_price_column" prefWidth="86.4000244140625" text="Price" />
+                    </columns>
+                  </TableView>
+                  <DatePicker fx:id="search_start_period" layoutX="245.0" layoutY="25.0" prefHeight="13.0" prefWidth="110.0" promptText="Start Period" />
+                  <DatePicker fx:id="search_end_period" layoutX="374.0" layoutY="25.0" prefHeight="13.0" prefWidth="110.0" promptText="End Period" />
+                  <TextField fx:id="search_usern_rental" layoutX="42.0" layoutY="26.0" promptText="Insert a username">
+                     <font>
+                        <Font size="14.0" />
+                     </font></TextField>
+                  <Button layoutX="506.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#searchRentals" style="-fx-background-color: white;" text="Search">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Button>
+                  <Label fx:id="count_text_label" layoutX="42.0" layoutY="310.0" text="Total rent:" textFill="#da1111">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="count_value_label" layoutX="129.0" layoutY="310.0" prefHeight="27.0" prefWidth="34.0" textFill="#cd1010">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="total_price_text_label" layoutX="207.0" layoutY="310.0" text="Total price: " textFill="#e51212">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="total_price_count_label" layoutX="301.0" layoutY="310.0" prefHeight="27.0" prefWidth="40.0" textFill="#dd1616">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="141.0" fitWidth="158.0" layoutX="431.0" layoutY="216.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../omino-attrezzi5.jpg" />
+                     </image>
+                  </ImageView>
+                  <ListView fx:id="top_list" layoutX="393.0" layoutY="111.0" prefHeight="103.0" prefWidth="182.0" />
+                  <Label fx:id="top_label" layoutX="431.0" layoutY="78.0" prefHeight="25.0" prefWidth="106.0" text="Top 3 movies" textFill="#e51212">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </content></Tab>
+      <Tab onClosed="#closeInformations" onSelectionChanged="#initUser" text="Users">
+         <content>
+            <Pane prefHeight="507.0" prefWidth="600.0" style="-fx-background-color: #1C0001;">
+               <children>
+                  <TextField fx:id="search_user_field" layoutX="42.0" layoutY="26.0" onKeyReleased="#setUserSearched" promptText="Search for a username...">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <TableView fx:id="user_table" layoutX="42.0" layoutY="86.0" onMouseClicked="#showInformations" prefHeight="200.0" prefWidth="140.0">
+                     <columns>
+                        <TableColumn fx:id="user_column" editable="false" prefWidth="139.0" text="Username" />
+                     </columns>
+                  </TableView>
+                  <Label fx:id="name_label" layoutX="226.0" layoutY="87.0" prefHeight="35.0" prefWidth="76.0" text="Name:" textFill="#db6063">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="surname_label" layoutX="226.0" layoutY="122.0" prefHeight="35.0" prefWidth="107.0" text="Surname:" textFill="#db6063">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="email_label" layoutX="226.0" layoutY="157.0" prefHeight="35.0" prefWidth="107.0" text="Email:" textFill="#db6063">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="credit_label" layoutX="226.0" layoutY="192.0" prefHeight="35.0" prefWidth="107.0" text="Credit:" textFill="#db6063">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="name_field" layoutX="320.0" layoutY="87.0" prefHeight="35.0" prefWidth="232.0" textFill="#db6063">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="surname_field" layoutX="317.0" layoutY="122.0" prefHeight="35.0" prefWidth="238.0" textFill="#db6063">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="email_field" layoutX="317.0" layoutY="157.0" prefHeight="35.0" prefWidth="264.0" textFill="#db6063">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="credit_field" layoutX="317.0" layoutY="192.0" prefHeight="35.0" prefWidth="107.0" textFill="#db6063">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="442.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../admin2.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="49.0" layoutY="306.0" mnemonicParsing="false" onMouseClicked="#deleteAccount" style="-fx-background-color: red;" text="Delete account" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="398.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#exit" style="-fx-background-color: white;" text="Log out">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
+         </content></Tab>
+  </tabs>
+</TabPane>

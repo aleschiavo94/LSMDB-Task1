@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="621.0" side="LEFT" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movietimejpa.FXMLUserController">
+  <tabs>
+    <Tab text="Search a movie">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;movies_user.jpeg&quot;); -fx-background-size: contain;">
+               <children>
+                  <TableView fx:id="film_table" layoutX="60.0" layoutY="91.0" onMouseClicked="#showDetails" prefHeight="276.0" prefWidth="328.0">
+                    <columns>
+                      <TableColumn fx:id="title_column" editable="false" prefWidth="101.0" text="Title" />
+                      <TableColumn fx:id="genre_column" editable="false" prefWidth="109.0" text="Genre" />
+                        
+                        <TableColumn fx:id="price_column" editable="false" prefWidth="115.0" text="Weekly price" />
+                    </columns>
+                  </TableView>
+                  <TextField fx:id="search_field" layoutX="136.0" layoutY="36.0" onKeyReleased="#setFilmSearched" promptText="Search for a title...">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="addToCart" layoutX="421.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#addSelectedToCart" style="-fx-background-color: white;" text="Add to Cart">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="buyButton" layoutX="421.0" layoutY="322.0" mnemonicParsing="false" onMouseClicked="#buyFilmInCart" prefHeight="36.0" prefWidth="104.0" style="-fx-background-color: white; -fx-border-color: red; -fx-border-width: 4px;" text="Buy">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <TableView fx:id="cart_table" layoutX="400.0" layoutY="91.0" prefHeight="172.0" prefWidth="145.0">
+                    <columns>
+                      <TableColumn fx:id="film_cart_column" editable="false" prefWidth="145.0" text="Cart" />
+                    </columns>
+                  </TableView>
+                  <ImageView fitHeight="39.0" fitWidth="43.0" layoutX="454.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../cart.jpg" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </content></Tab>
+      <Tab onSelectionChanged="#initRental" text="Rented movies">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-image: url(&quot;rental_user.jpeg&quot;); -fx-background-size: contain;">
+               <children>
+                  <TableView fx:id="rental_table" layoutX="60.0" layoutY="194.0" onMouseClicked="#getSelectedRent" prefHeight="270.0" prefWidth="328.0">
+                    <columns>
+                      <TableColumn fx:id="rental_startDate_column" minWidth="0.0" prefWidth="109.0" text="Start Date" />
+                        <TableColumn fx:id="rental_endDate_column" prefWidth="109.0" text="End Date" />
+                        <TableColumn fx:id="rental_price_column" prefWidth="107.0" text="Total Price" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="rented_film_table" layoutX="400.0" layoutY="194.0" prefHeight="216.0" prefWidth="145.0">
+                    <columns>
+                      <TableColumn fx:id="rented_title_column" prefWidth="150.19998168945312" text="Film in Rent" />
+                    </columns>
+                  </TableView>
+               </children>
+            </Pane>
+         </content></Tab>
+      <Tab closable="false" onSelectionChanged="#initUserInfo" text="Profile">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #201F24; -fx-background-image: url(&quot;info_user.jpeg&quot;);">
+               <children>
+                  <Button layoutX="383.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateUserInfo" prefHeight="38.0" prefWidth="186.0" style="-fx-background-color: white;" text="Update Informations">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="382.0" layoutY="458.0" mnemonicParsing="false" onMouseClicked="#deleteAccount" style="-fx-background-color: red;" text="Delete Account" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="infouser_email_field" layoutX="180.0" layoutY="359.0" prefHeight="27.0" prefWidth="170.0" promptText="current email">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="infouser_username_field" layoutX="334.0" layoutY="125.0" prefHeight="53.0" prefWidth="212.0" text="Username" textFill="#fcfcfc">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infouser_name_field" layoutX="336.0" layoutY="202.0" prefHeight="53.0" prefWidth="108.0" text="Name" textAlignment="CENTER" textFill="#f8f8f8">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infouser_surname_field" layoutX="452.0" layoutY="202.0" prefHeight="53.0" prefWidth="108.0" text="Surname" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="336.0" layoutY="249.0" prefHeight="53.0" prefWidth="130.0" text="Current Credit:" textAlignment="CENTER" textFill="#f8f8f8">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infouser_credit_field" layoutX="453.0" layoutY="249.0" prefHeight="53.0" prefWidth="41.0" text="#" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="359.0" prefHeight="30.0" prefWidth="121.0" text="Change Email" textFill="#fcfcfc">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="23.0" layoutY="302.0" prefHeight="30.0" prefWidth="124.0" text="Top up credit" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="infouser_deposit_field" layoutX="180.0" layoutY="302.0" prefHeight="25.0" prefWidth="57.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="23.0" layoutY="415.0" prefHeight="30.0" prefWidth="143.0" text="Change Password" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="infouser_newpassword_field" layoutX="180.0" layoutY="415.0" prefHeight="29.0" prefWidth="170.0" promptText="new password">
+                     <font>
+                        <Font size="14.0" />
+                     </font></PasswordField>
+                  <PasswordField fx:id="infouser_currentpassword_field" layoutX="180.0" layoutY="457.0" prefHeight="27.0" prefWidth="170.0" promptText="current password">
+                     <font>
+                        <Font size="14.0" />
+                     </font></PasswordField>
+                  <Button fx:id="exit_button" layoutX="503.0" layoutY="457.0" mnemonicParsing="false" onMouseClicked="#exit" style="-fx-background-color: white;" text="Log out">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="336.0" layoutY="196.0" text="Name:" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label layoutX="452.0" layoutY="195.0" text="Surname:" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label layoutX="336.0" layoutY="108.0" text="Username:" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                  <Label layoutX="108.0" layoutY="493.0" prefHeight="19.0" prefWidth="251.0" text="Insert the current password before update" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="Calibri Light Italic" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="326.0" layoutY="49.0" text="User Information" textFill="#eea507">
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

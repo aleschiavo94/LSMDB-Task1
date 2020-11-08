@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="388.0" prefWidth="368.0" style="-fx-background-color: #023A6B; -fx-border-color: #00142C; -fx-border-width: 3px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="movietimejpa.FXMLRegistrationController">
+   <children>
+      <Label layoutX="115.0" layoutY="22.0" style="-fx-font-weight: bold; -fx-font-size: 18;" text="Registration form" textFill="#ffcc00">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="name_field" layoutX="103.0" layoutY="62.0" promptText="Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="surname_field" layoutX="103.0" layoutY="107.0" promptText="Surname">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="email_field" layoutX="103.0" layoutY="148.0" promptText="Email">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="user_field" layoutX="103.0" layoutY="190.0" promptText="Username">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pwd_field" layoutX="103.0" layoutY="233.0" prefHeight="27.0" prefWidth="175.0" promptText="Password">
+         <font>
+            <Font size="14.0" />
+         </font></PasswordField>
+      <TextField fx:id="credit_field" layoutX="103.0" layoutY="274.0" promptText="Credit">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button fx:id="submit_button" layoutX="150.0" layoutY="315.0" mnemonicParsing="false" onMouseClicked="#getCredentials" text="Submit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+     
+   </children>
+</Pane>
